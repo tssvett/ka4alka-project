@@ -1,0 +1,7 @@
+telegram:
+  bot:
+    token: ${TELEGRAM_BOT_TOKEN}
+
+logging:
+  level:
+    root: INFO
