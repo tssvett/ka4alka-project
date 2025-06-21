@@ -1,7 +1,38 @@
-telegram:
-  bot:
-    token: ${TELEGRAM_BOT_TOKEN}
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: kachalka-project
+
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    driver-class-name: org.postgresql.Driver
+    change-log: migrations/changelog-master.xml
+
+  jackson:
+    time-zone: Europe/Samara
+
+  jooq:
+    sql-dialect: Postgres
+
+springdoc:
+  server-url:
+    - http://localhost:8080
 
 logging:
   level:
     root: INFO
+
+telegram:
+  bot:
+    token: ${TELEGRAM_BOT_TOKEN}
+
+rsa:
+  private-key: classpath:certs/private.pem
+  public-key: classpath:certs/public.pem
